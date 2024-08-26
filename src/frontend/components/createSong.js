@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import React, { useState, useEffect } from "react";
 import abi from "../contractsData/MyNFTCollection.json";
-import address from "../contractsData/MyNFTCollection-address.json";
+// import address from "../contractsData/MyNFTCollection-address.json";
 
 const CreateSong = () => {
   const [contract, setContract] = useState(null);
@@ -12,14 +12,14 @@ const CreateSong = () => {
   const [totalFractionalAmount, setTotalFractionalAmount] = useState(0);
   const [_tokenId, setTokenId] = useState(0);
   const [amount, setAmount] = useState(0);
-  const [contractBalance, setContractBalance] = useState("0"); // Add state for contract balance
+  const [contractBalance, setContractBalance] = useState("0"); 
 
   useEffect(() => {
     const init = async () => {
       if (window.ethereum) {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
-        const contractAddress = address.address;
+        const contractAddress = "0x1494E0a53844102E8Ebe7cAfDa756c6bDBc55E31";
         const contractABI = abi.abi;
         const contractInstance = new ethers.Contract(
           contractAddress,
@@ -110,15 +110,27 @@ const CreateSong = () => {
         if (totalSupply === 0) {
           throw new Error("Total supply cannot be zero");
         }
-        const amount = totalFractionalAmount.div(totalSupply);
+        const amount = totalFractionalAmount / totalSupply;
+        const value = ethers.utils.parseEther(amount.toString());
+  
+        // Estimate gas
+        const gasEstimate = await contract.estimateGas.buyStake(_tokenId, { value });
+        console.log("Estimated Gas:", gasEstimate.toString());
+  
         const tx = await contract.buyStake(_tokenId, {
-          value: ethers.utils.parseEther(amount.toString()),
+          value,
+          gasLimit: gasEstimate,
         });
         await tx.wait();
         console.log("Bought stake successfully");
       } catch (error) {
         console.error("Error buying stake:", error);
+        if (error.code === 'INSUFFICIENT_FUNDS') {
+          console.error("Insufficient funds for transaction");
+        }
       }
+    } else {
+      console.error("Contract instance is not available");
     }
   };
 
@@ -168,6 +180,7 @@ const CreateSong = () => {
       <h1>Create Song</h1>
       <button onClick={contractOwner}>Get Contract Owner</button>
       {owner && <p>Contract Owner: {owner}</p>}
+      
       <div>
         <input
           type="number"

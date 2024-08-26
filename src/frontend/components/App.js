@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { CreateSong } from "./createSong";
 import { useNavigate } from "react-router-dom";
-
+import { BgmiBeting } from "./bgmiBeting";
+import { Mines } from "./Mines";
+import {Lottery} from "./Lottery";
 
 function App() {
   const [account, setAccount] = useState(null);
-  const[isOpen,setIsOpen] = useState(false);
-  const navigate = useNavigate(); 
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
@@ -57,8 +59,21 @@ function App() {
     }
   };
   const handleCreateSongClick = () => {
-    navigate("/create-song"); // Navigate to /create-song
+    navigate("/create-song");
+    
   };
+
+  const handleBgmiBetingClick = () => {
+    navigate("/bgmi-beting");
+  };
+
+  const handleMinesClick = () => {
+    navigate("/Mines");
+  }
+
+  const handleLotteryClick = () => {
+    navigate("/lottery");
+  }
 
   return (
     <div>
@@ -68,8 +83,11 @@ function App() {
       ) : (
         <button onClick={connectWallet}>Connect Wallet</button>
       )}
-<button onClick={handleCreateSongClick}>Create Song</button>   
- </div>
+      <button onClick={handleCreateSongClick}>Create Song</button>
+      <button onClick={handleBgmiBetingClick}>BGMI Beting</button>
+      <button onClick={handleMinesClick}>Mines</button>
+      <button onClick={handleLotteryClick}>Lottery</button>
+    </div>
   );
 }
 

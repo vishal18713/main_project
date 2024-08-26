@@ -455,6 +455,114 @@
       "artifacts": [
         "Math"
       ]
+    },
+    "C:\\Users\\visha\\OneDrive\\Desktop\\main_project\\src\\backend\\contracts\\BGMI_Betting.sol": {
+      "lastModificationDate": 1724654898014,
+      "contentHash": "f0014e49c585d6f7a4a51dd9d98d6481",
+      "sourceName": "src/backend/contracts/BGMI_Betting.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BET"
+      ]
+    },
+    "C:\\Users\\visha\\OneDrive\\Desktop\\main_project\\src\\backend\\contracts\\Mines.sol": {
+      "lastModificationDate": 1724666285827,
+      "contentHash": "e69ce2b51fbb1ff8cfb14217c0644711",
+      "sourceName": "src/backend/contracts/Mines.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Mines"
+      ]
+    },
+    "C:\\Users\\visha\\OneDrive\\Desktop\\main_project\\src\\backend\\contracts\\Lottery.sol": {
+      "lastModificationDate": 1724669551903,
+      "contentHash": "522a8d17f97869b10fc1d88d5d493198",
+      "sourceName": "src/backend/contracts/Lottery.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SimpleLottery"
+      ]
     }
   }
 }
